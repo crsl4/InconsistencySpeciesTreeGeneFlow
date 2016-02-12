@@ -114,9 +114,7 @@ R CMD BATCH removeBSAstral.r
 perl PhylonetSymmDistAll.pl
 perl PhylonetSymmDistNJstAll.pl
 ```
-       to create a file distances.out inside each folder WARNING:
-       beware of the path, it has to say astral or njst, could have
-       been changed.
+to create a file distances.out inside each folder WARNING: beware of the path, it has to say astral or njst, could have been changed.
 
 4.
 ```
