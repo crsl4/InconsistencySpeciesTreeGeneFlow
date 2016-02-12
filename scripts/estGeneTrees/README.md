@@ -39,9 +39,7 @@ they are empty (not containing the results from true gene trees).
         BUCKy.  This script will create per replicate: `?_mb.out` (file
         with list of estimated trees) and `?_buckyCF.csv` (table with
         estCF) this perl script was modified from `hgt_all.pl` to do the
-        loop on `nloci` as well.  This script is better run in scratch:
-        darwin04 for gamma=0.1, darwin03 for gamma=0.3. This script
-        calls `hgt_est.pl`.
+        loop on `nloci` as well.  
 
 2. If you do not have true gene trees simulated with ms already, run
    ```
@@ -50,25 +48,45 @@ they are empty (not containing the results from true gene trees).
    ```
    instead. This script calls `hgt_est2.pl`.
 
-3. run perl raxml_all.pl gamma=0.1 from=1 to=100 (this runs
-   nloci=10,...,1000), run perl raxml_all2.pl gamma=0.3 nloci=xxx
-   from=1 to=100 (to parallelize per nloci).  This runs raxml (with
-   bootstrap) on the simulated sequences in the seqgen folder and
-   astral (with bootstrap) in the estimated raxml gene trees.
+3. run
+``` perl raxml_all.pl gamma=0.1 from=1 to=100
+```
+(this runs
+nloci=10,...,1000), run perl
+``` perl raxml_all2.pl gamma=0.3 nloci=xxx from=1 to=100
+```
+(to parallelize per nloci).  This runs
+raxml (with bootstrap) on the simulated sequences in the seqgen folder
+and astral (with bootstrap) in the estimated raxml gene trees.
 
-4. run R CMD BATCH bootstrapNJst.R, and after it's finished: R CMD
-BATCH bestNJst.R, to run NJst with bootstrap from the raxml estimated
+4. run
+```
+R CMD BATCH bootstrapNJst.R
+```
+and after it's finished:
+```
+R CMD BATCH bestNJst.R
+```
+to run NJst with bootstrap from the raxml estimated
 gene trees.
 
 5. need to root raxml trees for phylonet, so need to run:
+```
 R CMD BATCH checkRootGT.r
+```
 
-6. run perl phylonet_all.pl gamma=0.1 nloci=10 from=1 to=100, which
-will run PhyloNet with bootstrap. Be careful with memory use, do not
+6. run
+```
+perl phylonet_all.pl gamma=0.1 nloci=10 from=1 to=100
+```
+which will run PhyloNet with bootstrap. Be careful with memory use, do not
 start too many jobs in the same machine.
 
-7. Alternative, you can also run: perl phylonet_noBS_all.pl gamma=0.1
-nloci=10 from=1 to=100 to run only for original data (no bootstrap)
+7. Alternative, you can also run:
+```
+perl phylonet_noBS_all.pl gamma=0.1 nloci=10 from=1 to=100
+```
+to run only for original data (no bootstrap)
 for gamma=0.1,0.3, nloci=10,20,50,100,200,500,1000.  You need a folder
 called phylonet_noBS
 
@@ -76,24 +94,42 @@ called phylonet_noBS
 
 #####ASTRAL/ NJst
 
-1. run perl summarizeOutputAstralAll.pl, perl
-       summarizeOutputNJstAll.pl, to create estTrees.out files inside
-       each folder (estTrees0.out for astral)
+1. run
+```
+perl summarizeOutputAstralAll.pl
+perl summarizeOutputNJstAll.pl
+```
+to create estTrees.out files inside each folder (estTrees0.out for astral)
 
 2. For astral, we need an intermediate step to remove the bootstrap
-support on the trees: R CMD BATCH removeBSAstral.r
+support on the trees:
+```
+R CMD BATCH removeBSAstral.r
+```
 
-3. run perl PhylonetSymmDistAll.pl, perl PhylonetSymmDistNJstAll.pl,
+3. run
+```
+perl PhylonetSymmDistAll.pl
+perl PhylonetSymmDistNJstAll.pl
+```
        to create a file distances.out inside each folder WARNING:
        beware of the path, it has to say astral or njst, could have
        been changed.
 
-4. R CMD BATCH summarizeAstralDistances.r, R CMD BATCH
-   summarizeNjstDistances.r, to create two files per folder:
+4.
+```
+R CMD BATCH summarizeAstralDistances.r
+R CMD BATCH summarizeNjstDistances.r
+```
+to create two files per folder:
    freqtable.txt and statdf.txt WARNING: the path could be changed to
    other than astral or njst, so check!
 
-5. R CMD BATCH summarizeAstralAll.r, R CMD BATCH summarizeNjstAll.r,
+5.
+```
+R CMD BATCH summarizeAstralAll.r
+R CMD BATCH summarizeNjstAll.r
+```
    to create one summary table per gamma:
    gamma_alltableastral(njst).txt needs: 2ndtree.tre, 3rdtree.tre,
    4thtree.tre with other trees different to the true species tree.
@@ -104,40 +140,68 @@ support on the trees: R CMD BATCH removeBSAstral.r
 
 WARNING: for phylonet, we are using folder phylonet_noBS
 
-1. run perl summarizeOutputPhylonetAll.pl (make sure correct folder
+1. run
+```
+perl summarizeOutputPhylonetAll.pl
+```
+(make sure correct folder
 phylonet_noBS) to get estNetworks.out inside each folder
 
 2. get into the file extractMainTrees.jl and put the desired folder
 (phylonet_noBS) and corresponding filename (estNetworks.out), run:
-julia extractMainTrees.jl This script will create a estTrees.out file
+```
+julia extractMainTrees.jl
+```
+This script will create a estTrees.out file
 in each folder.
 
 3. Warning: next step takes time, so better to use a screen: change
-the path to phylonet_noBS in PhylonetSymmDist.pl and run: run perl
-PhylonetSymmDistAll.pl
+the path to phylonet_noBS in PhylonetSymmDist.pl and run: run
+```
+perl PhylonetSymmDistAll.pl
+```
 
-4. change the path to phylonet_noBS in summarizeAstralDistance.r R CMD
-BATCH summarizeAstralDistances.r, this will create freqtable and
-statdf files inside each folder
+4. change the path to phylonet_noBS in summarizeAstralDistance.r
+```
+R CMD BATCH summarizeAstralDistances.r
+```
+this will create freqtable and statdf files inside each folder
 
-5. change path to phylonet_noBS and run R CMD BATCH
-summarizeAstralAll.r, to create one summary table per gamma:
+5. change path to phylonet_noBS and run
+```
+R CMD BATCH summarizeAstralAll.r
+```
+to create one summary table per gamma:
 gamma_alltablephylonet.txt needs: 2ndtree.tre, 3rdtree.tre,
 4thtree.tre: other trees different that the true species tree
 
 #####Concatenation
 
-1. perl summarizeOutputConcatAll.pl, which will create the
+1.
+```
+perl summarizeOutputConcatAll.pl
+```
+which will create the
 estTrees.out and listFiles.out in each folder
 
-2. change path to raxml and run perl PhylonetSymmDistAll.pl to create
+2. change path to raxml and run
+```
+perl PhylonetSymmDistAll.pl
+```
+to create
 a file distances.out inside each folder
 
-3. change the path to raxml and run R CMD BATCH
-summarizeAstralDistances.r to create two files per folder:
+3. change the path to raxml and run
+```
+R CMD BATCH summarizeAstralDistances.r
+```
+to create two files per folder:
 freqtable.txt and statdf.txt
 
-4. change the path to raxml and run R CMD BATCH summarizeAstralAll.r
+4. change the path to raxml and run
+```
+R CMD BATCH summarizeAstralAll.r
+```
  to create one summary table per gamma: gamma_alltableconcat.txt
  needs: 2ndtree.tre, 3rdtree.tre, 4thtree.tre: other trees different
  that the true species tree
