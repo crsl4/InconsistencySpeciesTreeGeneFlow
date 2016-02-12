@@ -101,7 +101,7 @@ called phylonet_noBS
 perl summarizeOutputAstralAll.pl
 perl summarizeOutputNJstAll.pl
 ```
-to create estTrees.out files inside each folder (estTrees0.out for astral)
+to create `estTrees.out` files inside each folder (`estTrees0.out` for astral)
 
 2. For astral, we need an intermediate step to remove the bootstrap
 support on the trees:
@@ -114,7 +114,7 @@ R CMD BATCH removeBSAstral.r
 perl PhylonetSymmDistAll.pl
 perl PhylonetSymmDistNJstAll.pl
 ```
-to create a file distances.out inside each folder WARNING: beware of the path, it has to say astral or njst, could have been changed.
+to create a file `distances.out` inside each folder WARNING: beware of the path, it has to say astral or njst, could have been changed.
 
 4.
 ```
@@ -122,7 +122,7 @@ R CMD BATCH summarizeAstralDistances.r
 R CMD BATCH summarizeNjstDistances.r
 ```
 to create two files per folder:
-   freqtable.txt and statdf.txt WARNING: the path could be changed to
+   `freqtable.txt` and `statdf.txt` WARNING: the path could be changed to
    other than astral or njst, so check!
 
 5.
@@ -131,8 +131,8 @@ R CMD BATCH summarizeAstralAll.r
 R CMD BATCH summarizeNjstAll.r
 ```
    to create one summary table per gamma:
-   gamma_alltableastral(njst).txt needs: 2ndtree.tre, 3rdtree.tre,
-   4thtree.tre with other trees different to the true species tree.
+   `gamma_alltableastral(njst).txt` needs: `2ndtree.tre`, `3rdtree.tre`,
+   `4thtree.tre` with other trees different to the true species tree.
    WARNING: the path could be changed to other than astral or njst, so
    check!
 
@@ -145,23 +145,23 @@ WARNING: for phylonet, we are using folder phylonet_noBS
 perl summarizeOutputPhylonetAll.pl
 ```
 (make sure correct folder
-phylonet_noBS) to get estNetworks.out inside each folder
+phylonet_noBS) to get `estNetworks.out` inside each folder
 
-2. get into the file extractMainTrees.jl and put the desired folder
-(phylonet_noBS) and corresponding filename (estNetworks.out), run:
+2. get into the file `extractMainTrees.jl` and put the desired folder
+(phylonet_noBS) and corresponding filename (`estNetworks.out`), run:
 ```
 julia extractMainTrees.jl
 ```
-This script will create a estTrees.out file
+This script will create a `estTrees.out` file
 in each folder.
 
 3. Warning: next step takes time, so better to use a screen: change
-the path to phylonet_noBS in PhylonetSymmDist.pl and run: run
+the path to phylonet_noBS in `PhylonetSymmDist.pl` and run: run
 ```
 perl PhylonetSymmDistAll.pl
 ```
 
-4. change the path to phylonet_noBS in summarizeAstralDistance.r
+4. change the path to phylonet_noBS in `summarizeAstralDistance.r`
 ```
 R CMD BATCH summarizeAstralDistances.r
 ```
@@ -172,8 +172,8 @@ this will create freqtable and statdf files inside each folder
 R CMD BATCH summarizeAstralAll.r
 ```
 to create one summary table per gamma:
-gamma_alltablephylonet.txt needs: 2ndtree.tre, 3rdtree.tre,
-4thtree.tre: other trees different that the true species tree
+`gamma_alltablephylonet.txt` needs: `2ndtree.tre`, `3rdtree.tre`,
+`4thtree.tre`: other trees different than the true species tree
 
 #####Concatenation
 
@@ -182,28 +182,28 @@ gamma_alltablephylonet.txt needs: 2ndtree.tre, 3rdtree.tre,
 perl summarizeOutputConcatAll.pl
 ```
 which will create the
-estTrees.out and listFiles.out in each folder
+`estTrees.out` and `listFiles.out` in each folder
 
 2. change path to raxml and run
 ```
 perl PhylonetSymmDistAll.pl
 ```
 to create
-a file distances.out inside each folder
+a file `distances.out` inside each folder
 
 3. change the path to raxml and run
 ```
 R CMD BATCH summarizeAstralDistances.r
 ```
 to create two files per folder:
-freqtable.txt and statdf.txt
+`freqtable.txt` and `statdf.txt`
 
 4. change the path to raxml and run
 ```
 R CMD BATCH summarizeAstralAll.r
 ```
- to create one summary table per gamma: gamma_alltableconcat.txt
- needs: 2ndtree.tre, 3rdtree.tre, 4thtree.tre: other trees different
- that the true species tree
+ to create one summary table per gamma: `gamma_alltableconcat.txt`
+ needs: `2ndtree.tre`, `3rdtree.tre`, `4thtree.tre`: other trees different
+ than the true species tree
 
 
