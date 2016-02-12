@@ -27,21 +27,28 @@ they are empty (not containing the results from true gene trees).
 
 ####SIMULATIONS:
 
-1. run: perl hgt_est_all.pl gamma=0.3 from=1 to=100, perl
-        hgt_est_all.pl gamma=0.1 from=1 to=100.  This script will
+1. run: 
+   ```
+   perl hgt_est_all.pl gamma=0.3 from=1 to=100 
+   perl hgt_est_all.pl gamma=0.1 from=1 to=100
+   ```
+   This script will
         simulate sequences with seqgen on the true gene trees
         (simulated with ms already), and will then estimate gene tree
         with MrBayes. It will then estimate concordance factors with
-        BUCKy.  This script will create per replicate: ?_mb.out (file
-        with list of estimated trees) and ?_buckyCF.csv (table with
-        estCF) this perl script was modified from hgt_all.pl to do the
-        loop on nloci as well.  This script is better run in scratch:
+        BUCKy.  This script will create per replicate: `?_mb.out` (file
+        with list of estimated trees) and `?_buckyCF.csv` (table with
+        estCF) this perl script was modified from `hgt_all.pl` to do the
+        loop on `nloci` as well.  This script is better run in scratch:
         darwin04 for gamma=0.1, darwin03 for gamma=0.3. This script
-        calls hgt_est.pl.
+        calls `hgt_est.pl`.
 
 2. If you do not have true gene trees simulated with ms already, run
-perl hgt_est_all2.pl gamma=0.3(0.1) from=1 to=100 instead. This script
-calls hgt_est2.pl.
+   ```
+   perl hgt_est_all2.pl gamma=0.3 from=1 to=100
+   perl hgt_est_all2.pl gamma=0.1 from=1 to=100
+   ```
+   instead. This script calls `hgt_est2.pl`.
 
 3. run perl raxml_all.pl gamma=0.1 from=1 to=100 (this runs
    nloci=10,...,1000), run perl raxml_all2.pl gamma=0.3 nloci=xxx
