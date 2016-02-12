@@ -23,7 +23,7 @@ create subfolders for each scenario in NJst directory and one file
 estTrees.out
 
 
-####SUMMARIZE OUTPUT
+####SUMMARIZE OUTPUT:
 
 1. run perl summarizeOutputAstralAll.pl, perl
        summarizeOutputPhylonetAll.pl, which will create one file (per
