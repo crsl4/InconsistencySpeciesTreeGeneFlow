@@ -49,11 +49,13 @@ they are empty (not containing the results from true gene trees).
    instead. This script calls `hgt_est2.pl`.
 
 3. run
-``` perl raxml_all.pl gamma=0.1 from=1 to=100
+```
+perl raxml_all.pl gamma=0.1 from=1 to=100
 ```
 (this runs
 nloci=10,...,1000), run perl
-``` perl raxml_all2.pl gamma=0.3 nloci=xxx from=1 to=100
+```
+perl raxml_all2.pl gamma=0.3 nloci=xxx from=1 to=100
 ```
 (to parallelize per nloci).  This runs
 raxml (with bootstrap) on the simulated sequences in the seqgen folder
