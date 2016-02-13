@@ -11,55 +11,55 @@ subfolders inside the project folder: ms, phylonet, astral, NJst
 
 ####SIMULATIONS:
 
-1.run
-```
+1. run
+   ```
 perl hgt_all.pl gamma=0.3 nloci=10 from=1 to=10
-```
-This perl script
-calls hgt.pl which simulates gene trees with ms, and analyzes them
-with astral and phylonet.  Careful: no spaces between the variable, =
-and the number. That is, gamma=0.3 is correct, but gamma = 0.3 is
-wrong.
+   ```
+   This perl script
+   calls hgt.pl which simulates gene trees with ms, and analyzes them
+   with astral and phylonet.  Careful: no spaces between the variable, =
+   and the number. That is, gamma=0.3 is correct, but gamma = 0.3 is
+   wrong.
 
 2. run
-```
+   ```
 R CMD BATCH getSpeTree.R
-```
-in the project folder which will
-create subfolders for each scenario in NJst directory and one file
-(per folder) with the list of all estimated trees(in order)in NJst:
-`estTrees.out`
+   ```
+   in the project folder which will
+   create subfolders for each scenario in NJst directory and one file
+   (per folder) with the list of all estimated trees(in order)in NJst:
+   `estTrees.out`
 
 
 ####SUMMARIZE OUTPUT:
 
 1. run
-```
-perl summarizeOutputAstralAll.pl
-perl summarizeOutputPhylonetAll.pl
-```
-which will create one file (per
+   ```
+   perl summarizeOutputAstralAll.pl
+   perl summarizeOutputPhylonetAll.pl
+   ```
+   which will create one file (per
        folder) with the list of all estimated trees in astral:
        `estTrees.out` and all the estimated networks in phylonet:
        `estNetworks.out` for that folder (given value of gamma, nloci)
 
 2. run
-```
-perl PhylonetCmpnetsAll.pl
-perl PhylonetSymmDistAll.pl
-```
-which
+   ```
+   perl PhylonetCmpnetsAll.pl
+   perl PhylonetSymmDistAll.pl
+   ```
+   which
        will calculate the distance of estimated networks/trees and
        true network/tree (need to match the one used for simulations
        in ms: `hgt.pl`) in every subfolder in phylonet/astral: this will
        create a file `distances.out` inside each subfolder
 
 3. run
-```
-R CMD BATCH summarizeAstralDistances.r
-R CMD BATCH summarizeNJstDistances.r
-```
-(`distances.R` is script
+   ```
+   R CMD BATCH summarizeAstralDistances.r
+   R CMD BATCH summarizeNJstDistances.r
+   ```
+   (`distances.R` is script
                    for only one specific case) that will get into each
                    subfolder in astral/NJst and will summarize results
                    based on distances.out into two files:
@@ -68,11 +68,11 @@ R CMD BATCH summarizeNJstDistances.r
                    mean/sd distance)
 
 4. run
-```
-R CMD BATCH summarizeAstralAll.R
-R CMD BATCH summarizeNJstAll.R
-```
-that will
+   ```
+   R CMD BATCH summarizeAstralAll.R
+   R CMD BATCH summarizeNJstAll.R
+   ```
+   that will
                    summarize all summary tables and will summarize it
                    into two files:
                    `0.1_alltableastral.txt`,`0.1_alltableNJst.txt` (that
