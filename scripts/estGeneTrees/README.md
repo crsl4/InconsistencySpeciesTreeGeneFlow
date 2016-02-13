@@ -176,11 +176,11 @@ WARNING: for phylonet, we are using folder phylonet_noBS
 
 #####Concatenation
 
-1.
+1. run
    ```
    perl summarizeOutputConcatAll.pl
    ```
-   will create the
+   to create files
    `estTrees.out` and `listFiles.out` in each folder
 
 2. change path to raxml and run
