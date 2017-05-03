@@ -11,8 +11,8 @@ gamma (0.1, 0.3),nloci (10,...,500)
 [BUCKy](http://www.stat.wisc.edu/~ane/bucky/index.html) and
 [RAxML](http://sco.h-its.org/exelixis/software.html) in the software
 folder. For RAxML, the scripts assume it was installed and compiled
-with: git clone https://github.com/stamatak/standard-RAxML.git, make
--f Makefile.SSE3.PTHREADS.gcc, rm *.o.  Also need
+with: `git clone https://github.com/stamatak/standard-RAxML.git, make
+-f Makefile.SSE3.PTHREADS.gcc, rm *.o`.  Also need
 [astral](https://github.com/smirarab/ASTRAL),
 [ms](http://home.uchicago.edu/rhudson1/source/mksamples/msdir/msdoc.pdf)
 and [phylonet](http://bioinfo.cs.rice.edu/phylonet),
