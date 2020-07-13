@@ -12,14 +12,11 @@ subfolders inside the project folder: ms, phylonet, astral, NJst
 ####SIMULATIONS:
 
 1. run
-   ```
+```
 perl hgt_all.pl gamma=0.3 nloci=10 from=1 to=10
-   ```
-   This perl script
-   calls hgt.pl which simulates gene trees with ms, and analyzes them
-   with astral and phylonet.  Careful: no spaces between the variable, =
-   and the number. That is, gamma=0.3 is correct, but gamma = 0.3 is
-   wrong.
+```
+This perl script calls hgt.pl which simulates gene trees with ms, and analyzes them with astral and phylonet.  Careful: no spaces between the variable, =
+and the number. That is, gamma=0.3 is correct, but gamma = 0.3 is wrong.
 
 2. run
    ```
