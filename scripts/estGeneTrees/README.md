@@ -1,4 +1,4 @@
-####SETUP:
+#### SETUP:
 
 1. Copy the ms folder from the true gene trees simulations per scenario:
 gamma (0.1, 0.3),nloci (10,...,500)
@@ -11,8 +11,8 @@ gamma (0.1, 0.3),nloci (10,...,500)
 [BUCKy](http://www.stat.wisc.edu/~ane/bucky/index.html) and
 [RAxML](http://sco.h-its.org/exelixis/software.html) in the software
 folder. For RAxML, the scripts assume it was installed and compiled
-with: git clone https://github.com/stamatak/standard-RAxML.git, make
--f Makefile.SSE3.PTHREADS.gcc, rm *.o.  Also need
+with: `git clone https://github.com/stamatak/standard-RAxML.git, make
+-f Makefile.SSE3.PTHREADS.gcc, rm *.o`.  Also need
 [astral](https://github.com/smirarab/ASTRAL),
 [ms](http://home.uchicago.edu/rhudson1/source/mksamples/msdir/msdoc.pdf)
 and [phylonet](http://bioinfo.cs.rice.edu/phylonet),
@@ -25,7 +25,7 @@ in a software folder.  Also need to install
 project folder.  It also needs astral, phylonet and njst folders. Make sure
 they are empty (not containing the results from true gene trees).
 
-####SIMULATIONS:
+#### SIMULATIONS:
 
 1. run: 
    ```
@@ -91,9 +91,9 @@ they are empty (not containing the results from true gene trees).
    for gamma=0.1,0.3, nloci=10,20,50,100,200,500,1000.  You need a folder
    called phylonet_noBS
 
-####SUMMARY OF RESULTS:
+#### SUMMARY OF RESULTS:
 
-#####ASTRAL/ NJst
+##### ASTRAL/ NJst
 
 1. run
    ```
@@ -135,7 +135,7 @@ they are empty (not containing the results from true gene trees).
    WARNING: the path could be changed to other than astral or njst, so
    check!
 
-#####PhyloNet
+##### PhyloNet
 
 WARNING: for phylonet, we are using folder phylonet_noBS
 
@@ -174,7 +174,7 @@ WARNING: for phylonet, we are using folder phylonet_noBS
    `gamma_alltablephylonet.txt` needs: `2ndtree.tre`, `3rdtree.tre`,
    `4thtree.tre`: other trees different than the true species tree
 
-#####Concatenation
+##### Concatenation
 
 1. run
    ```

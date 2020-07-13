@@ -1,4 +1,4 @@
-####SETUP:
+#### SETUP:
 
 1. You need to have [astral](https://github.com/smirarab/ASTRAL),
 [ms](http://home.uchicago.edu/rhudson1/source/mksamples/msdir/msdoc.pdf)
@@ -9,7 +9,7 @@ in a software folder
 2. You need a project folder with all the scripts and create four
 subfolders inside the project folder: ms, phylonet, astral, NJst
 
-####SIMULATIONS:
+#### SIMULATIONS:
 
 1. run
 ```
@@ -28,7 +28,7 @@ R CMD BATCH getSpeTree.R
    `estTrees.out`
 
 
-####SUMMARIZE OUTPUT:
+#### SUMMARIZE OUTPUT:
 
 1. run
    ```
